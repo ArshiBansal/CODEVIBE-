@@ -1,6 +1,7 @@
 // src/components/Compiler.jsx
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+// Dynamic API URL config resolving to localhost in dev and Render live server in production
 import API_BASE_URL from "../config/api";
 
 const SCORING = (attempt) =>
