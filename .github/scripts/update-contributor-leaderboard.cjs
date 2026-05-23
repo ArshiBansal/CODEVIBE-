@@ -13,8 +13,25 @@ const IGNORED_LOGINS = new Set([
   "dependabot-preview[bot]",
 ]);
 
-function isIgnoredLogin(login) {
-  return !login || IGNORED_LOGINS.has(login) || login.endsWith("[bot]");
+function getIgnoredLogins(owner) {
+  const configuredLogins = (process.env.LEADERBOARD_EXCLUDED_LOGINS || "")
+    .split(",")
+    .map((login) => login.trim())
+    .filter(Boolean);
+
+  return new Set(
+    [...IGNORED_LOGINS, owner, ...configuredLogins].map((login) =>
+      login.toLowerCase()
+    )
+  );
+}
+
+function isIgnoredLogin(login, ignoredLogins) {
+  return (
+    !login ||
+    ignoredLogins.has(login.toLowerCase()) ||
+    login.toLowerCase().endsWith("[bot]")
+  );
 }
 
 function getContributor(contributors, login, htmlUrl) {
@@ -139,6 +156,7 @@ async function syncLeaderboardWithBackend({ contributors, core }) {
 async function updateContributorLeaderboard({ github, context, core, outputPath }) {
   const { owner, repo } = context.repo;
   const contributors = new Map();
+  const ignoredLogins = getIgnoredLogins(owner);
 
   const commitContributors = await github.paginate(github.rest.repos.listContributors, {
     owner,
@@ -148,7 +166,7 @@ async function updateContributorLeaderboard({ github, context, core, outputPath 
   });
 
   for (const contributor of commitContributors) {
-    if (isIgnoredLogin(contributor.login)) {
+    if (isIgnoredLogin(contributor.login, ignoredLogins)) {
       continue;
     }
 
@@ -164,7 +182,7 @@ async function updateContributorLeaderboard({ github, context, core, outputPath 
   for (const pullRequest of mergedPullRequests) {
     const login = pullRequest.user && pullRequest.user.login;
 
-    if (isIgnoredLogin(login)) {
+    if (isIgnoredLogin(login, ignoredLogins)) {
       continue;
     }
 
@@ -180,7 +198,7 @@ async function updateContributorLeaderboard({ github, context, core, outputPath 
   for (const issue of closedIssues) {
     const login = issue.user && issue.user.login;
 
-    if (isIgnoredLogin(login)) {
+    if (isIgnoredLogin(login, ignoredLogins)) {
       continue;
     }
 

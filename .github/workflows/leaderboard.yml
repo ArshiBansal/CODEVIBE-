@@ -25,6 +25,7 @@ concurrency:
 
 env:
   LEADERBOARD_API_URL: https://codevibe-3.onrender.com/api/contributors/sync
+  LEADERBOARD_EXCLUDED_LOGINS: JiyaBatra
 
 jobs:
   update-leaderboard:
