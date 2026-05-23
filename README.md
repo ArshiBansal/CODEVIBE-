@@ -344,6 +344,30 @@ Join our growing community of learners and contributors!
 
 ---
 
+## Contributors
+
+Thanks to all the amazing people who contribute to **CODEVIBE** 🚀
+
+<p align="center">
+  <a href="https://github.com/JiyaBatra/CODEVIBE-/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=JiyaBatra/CODEVIBE-" alt="Contributors"/>
+  </a>
+</p>
+
+<br>
+
+## Project Support
+
+<p align="center">
+  <a href="https://github.com/JiyaBatra/CODEVIBE-/stargazers">
+    <img src="https://img.shields.io/github/stars/JiyaBatra/CODEVIBE-?style=social" alt="Stars">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/JiyaBatra/CODEVIBE-/network/members">
+    <img src="https://img.shields.io/github/forks/JiyaBatra/CODEVIBE-?style=social" alt="Forks">
+  </a>
+</p>
+
 ## Troubleshooting
 
 ### Port Already in Use
