@@ -14,7 +14,7 @@ Last updated: 2026-05-23
 
 | Rank | Contributor | Score | Commits | Merged PRs | Closed Issues |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 1 | [@JiyaBatra](https://github.com/JiyaBatra) | 224 | 82 | 2 | 8 |
+| 1 | [@JiyaBatra](https://github.com/JiyaBatra) | 228 | 84 | 2 | 8 |
 | 2 | [@sricharan-213](https://github.com/sricharan-213) | 107 | 6 | 6 | 7 |
 | 3 | [@Aayuiiitmg](https://github.com/Aayuiiitmg) | 104 | 12 | 8 | 0 |
 | 4 | [@pranav-cholleti](https://github.com/pranav-cholleti) | 86 | 18 | 3 | 4 |
