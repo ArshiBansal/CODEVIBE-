@@ -1,197 +1,311 @@
-import React from 'react';
+import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="privacy-policy-container">
-      <div className="privacy-policy-content">
-        <h1>Privacy Policy</h1>
-        <p className="last-updated">Last Updated: May 2026</p>
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-10">
+          <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
+          <p className="text-indigo-100 text-sm">Last Updated: May 2026</p>
+        </div>
 
-        <section>
-          <h2>1. Introduction</h2>
-          <p>
-            CodeVibe ("we," "us," "our," or "Company") is committed to protecting your privacy. 
-            This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
-            when you visit our website.
-          </p>
-        </section>
+        {/* Content */}
+        <div className="px-8 py-10 space-y-10 text-gray-700 leading-7">
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              1. Introduction
+            </h2>
+            <p>
+              Welcome to <strong>CodeVibe</strong>. Your privacy matters to us.
+              This Privacy Policy explains how we collect, use, protect, and
+              manage your information when you use our platform and services.
+            </p>
+          </section>
 
-        <section>
-          <h2>2. Information We Collect</h2>
-          
-          <h3>2.1 Personal Information</h3>
-          <p>When you register for an account, we collect:</p>
-          <ul>
-            <li>Username</li>
-            <li>Email address</li>
-            <li>College/Institution name</li>
-            <li>Year of study</li>
-            <li>Password (encrypted)</li>
-          </ul>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              2. Information We Collect
+            </h2>
 
-          <h3>2.2 Usage Information</h3>
-          <p>We automatically collect information about your interaction with the Service:</p>
-          <ul>
-            <li>Pages visited</li>
-            <li>Lessons completed</li>
-            <li>Progress and achievements</li>
-            <li>Time spent on lessons</li>
-            <li>Feedback and certificates generated</li>
-          </ul>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-medium text-indigo-600 mb-2">
+                  2.1 Personal Information
+                </h3>
 
-          <h3>2.3 Device Information</h3>
-          <p>We collect technical information about your device:</p>
-          <ul>
-            <li>Browser type and version</li>
-            <li>Operating system</li>
-            <li>IP address (anonymized)</li>
-            <li>Device type (mobile, tablet, desktop)</li>
-            <li>Screen resolution</li>
-          </ul>
-        </section>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Username</li>
+                  <li>Email address</li>
+                  <li>College/Institution name</li>
+                  <li>Year of study</li>
+                  <li>Encrypted password</li>
+                </ul>
+              </div>
 
-        <section>
-          <h2>3. How We Use Your Information</h2>
-          <p>We use collected information for:</p>
-          <ul>
-            <li>Creating and maintaining your account</li>
-            <li>Providing learning services and tracking progress</li>
-            <li>Sending service-related notifications</li>
-            <li>Improving our platform through analytics</li>
-            <li>Responding to your inquiries and support requests</li>
-            <li>Generating certificates and performance reports</li>
-            <li>Compliance with legal obligations</li>
-          </ul>
-        </section>
+              <div>
+                <h3 className="text-xl font-medium text-indigo-600 mb-2">
+                  2.2 Usage Information
+                </h3>
 
-        <section>
-          <h2>4. Cookies and Tracking Technologies</h2>
-          
-          <h3>4.1 Cookies</h3>
-          <p>
-            We use cookies to enhance your browsing experience. Cookies are small files stored on your device 
-            that help us remember your preferences and login status.
-          </p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Pages visited</li>
+                  <li>Lessons completed</li>
+                  <li>Progress and achievements</li>
+                  <li>Time spent on lessons</li>
+                  <li>Certificates generated</li>
+                  <li>Feedback submissions</li>
+                </ul>
+              </div>
 
-          <h3>4.2 Types of Cookies</h3>
-          <ul>
-            <li><strong>Essential Cookies:</strong> Required for login and basic functionality</li>
-            <li><strong>Performance Cookies:</strong> Help us understand how you use the platform</li>
-            <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-          </ul>
+              <div>
+                <h3 className="text-xl font-medium text-indigo-600 mb-2">
+                  2.3 Device Information
+                </h3>
 
-          <h3>4.3 Controlling Cookies</h3>
-          <p>
-            You can control cookies through your browser settings. However, disabling cookies may affect 
-            the functionality of the platform.
-          </p>
-        </section>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Browser type and version</li>
+                  <li>Operating system</li>
+                  <li>Anonymized IP address</li>
+                  <li>Device type</li>
+                  <li>Screen resolution</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-        <section>
-          <h2>5. Third-Party Services</h2>
-          <p>We use the following third-party services:</p>
-          
-          <h3>5.1 Analytics</h3>
-          <ul>
-            <li><strong>Purpose:</strong> Understanding user behavior and improving the platform</li>
-            <li><strong>Data Shared:</strong> Anonymized usage data, device information</li>
-            <li><strong>Provider:</strong> Google Analytics (or similar)</li>
-          </ul>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              3. How We Use Your Information
+            </h2>
 
-          <h3>5.2 Authentication</h3>
-          <ul>
-            <li><strong>Purpose:</strong> Secure user authentication</li>
-            <li><strong>Data Shared:</strong> Email, username, encrypted password</li>
-          </ul>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Create and maintain your account</li>
+              <li>Provide personalized learning experiences</li>
+              <li>Track learning progress and achievements</li>
+              <li>Improve platform performance and usability</li>
+              <li>Respond to support requests</li>
+              <li>Generate certificates and reports</li>
+              <li>Ensure legal compliance and security</li>
+            </ul>
+          </section>
 
-          <h3>5.3 Deployment & Hosting</h3>
-          <ul>
-            <li><strong>Provider:</strong> Render, GitHub Pages, or similar</li>
-            <li><strong>Data Stored:</strong> All user data and platform content</li>
-          </ul>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              4. Cookies & Tracking Technologies
+            </h2>
 
-          <p>
-            These third-party services have their own privacy policies. We encourage you to review them 
-            to understand their practices.
-          </p>
-        </section>
+            <div className="space-y-5">
+              <div className="bg-gray-50 border rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Essential Cookies
+                </h3>
+                <p>
+                  Required for login, authentication, and basic functionality.
+                </p>
+              </div>
 
-        <section>
-          <h2>6. Data Security</h2>
-          <p>
-            We implement industry-standard security measures to protect your information, including:
-          </p>
-          <ul>
-            <li>Password encryption (bcrypt or similar)</li>
-            <li>HTTPS protocol for data transmission</li>
-            <li>Regular security audits</li>
-            <li>Limited access to personal information</li>
-          </ul>
-          <p>
-            However, no security system is impenetrable. We cannot guarantee absolute security of your 
-            information transmitted over the internet.
-          </p>
-        </section>
+              <div className="bg-gray-50 border rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Performance Cookies
+                </h3>
+                <p>
+                  Help us understand platform usage and improve performance.
+                </p>
+              </div>
 
-        <section>
-          <h2>7. Data Retention</h2>
-          <p>
-            We retain your personal information for as long as your account is active and for 90 days after 
-            account deletion for backup and legal compliance purposes. You can request deletion of your data 
-            at any time.
-          </p>
-        </section>
+              <div className="bg-gray-50 border rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Preference Cookies
+                </h3>
+                <p>Store your preferences such as themes and settings.</p>
+              </div>
+            </div>
+          </section>
 
-        <section>
-          <h2>8. Your Rights and Choices</h2>
-          <p>You have the right to:</p>
-          <ul>
-            <li><strong>Access:</strong> Request a copy of your personal data</li>
-            <li><strong>Rectification:</strong> Correct inaccurate or incomplete information</li>
-            <li><strong>Deletion:</strong> Request deletion of your account and data</li>
-            <li><strong>Portability:</strong> Download your data in a portable format</li>
-            <li><strong>Opt-out:</strong> Unsubscribe from non-essential communications</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              5. Third-Party Services
+            </h2>
 
-        <section>
-          <h2>9. Children's Privacy</h2>
-          <p>
-            CodeVibe is not intended for children under 13 years old. We do not knowingly collect personal 
-            information from children under 13. If we learn that we have collected such information, we will 
-            delete it immediately.
-          </p>
-        </section>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border rounded-xl p-5 bg-gray-50">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Analytics
+                </h3>
 
-        <section>
-          <h2>10. Changes to This Policy</h2>
-          <p>
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting 
-            the new Privacy Policy on this page and updating the "Last Updated" date.
-          </p>
-        </section>
+                <p>
+                  We may use tools like Google Analytics to improve user
+                  experience and understand usage patterns.
+                </p>
+              </div>
 
-        <section>
-          <h2>11. Contact Us</h2>
-          <p>If you have questions about this Privacy Policy or our privacy practices:</p>
-          <ul>
-            <li>📧 Email: <a href="mailto:privacy@codevibe.com">privacy@codevibe.com</a></li>
-            <li>🔗 GitHub: <a href="https://github.com/JiyaBatra/CODEVIBE-" target="_blank" rel="noopener noreferrer">JiyaBatra/CODEVIBE-</a></li>
-            <li>💬 Discord: <a href="https://discord.com/channels/1503405091875455107/1503405094933237853" target="_blank" rel="noopener noreferrer">Join our community</a></li>
-          </ul>
-        </section>
+              <div className="border rounded-xl p-5 bg-gray-50">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Authentication
+                </h3>
 
-        <section>
-          <h2>12. GDPR and Regional Compliance</h2>
-          <p>
-            If you are located in the European Union or other regions with data protection regulations, 
-            we comply with GDPR and similar laws. Your data is processed with your consent, and you have 
-            the rights outlined above.
-          </p>
-        </section>
+                <p>
+                  Third-party authentication providers may securely process
+                  login credentials.
+                </p>
+              </div>
 
-        <div className="policy-footer">
-          <p>© 2026 CodeVibe. All rights reserved.</p>
+              <div className="border rounded-xl p-5 bg-gray-50">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Hosting & Deployment
+                </h3>
+
+                <p>
+                  Services such as Render, Vercel, or GitHub Pages may host our
+                  platform.
+                </p>
+              </div>
+
+              <div className="border rounded-xl p-5 bg-gray-50">
+                <h3 className="text-lg font-semibold text-indigo-600 mb-2">
+                  Cloud Storage
+                </h3>
+
+                <p>
+                  Certificates and platform assets may be stored securely on
+                  cloud servers.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              6. Data Security
+            </h2>
+
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Encrypted passwords using bcrypt</li>
+              <li>HTTPS secure communication</li>
+              <li>Regular security monitoring</li>
+              <li>Restricted access to sensitive data</li>
+            </ul>
+
+            <p className="mt-4">
+              While we take strong precautions, no online platform can guarantee
+              complete security.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              7. Data Retention
+            </h2>
+
+            <p>
+              We retain user information while accounts remain active and for a
+              limited period afterward for backup, compliance, and security
+              purposes.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              8. Your Rights
+            </h2>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                "Access your personal data",
+                "Correct inaccurate information",
+                "Request account deletion",
+                "Download your data",
+                "Withdraw consent",
+                "Opt-out of non-essential emails",
+              ].map((item, index) => (
+                <div key={index} className="border rounded-lg p-4 bg-indigo-50">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              9. Children's Privacy
+            </h2>
+
+            <p>
+              CodeVibe is not intended for children under 13 years of age. We do
+              not knowingly collect information from children.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              10. Policy Updates
+            </h2>
+
+            <p>
+              We may update this Privacy Policy from time to time. Changes will
+              be reflected on this page with an updated revision date.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              11. Contact Us
+            </h2>
+
+            <div className="bg-gray-100 rounded-xl p-6 space-y-3">
+              <p>
+                📧 Email:{" "}
+                <a
+                  href="mailto:privacy@codevibe.com"
+                  className="text-indigo-600 hover:underline"
+                >
+                  privacy@codevibe.com
+                </a>
+              </p>
+
+              <p>
+                🔗 GitHub:{" "}
+                <a
+                  href="https://github.com/JiyaBatra/CODEVIBE-"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:underline"
+                >
+                  JiyaBatra/CODEVIBE-
+                </a>
+              </p>
+
+              <p>
+                💬 Discord:{" "}
+                <a
+                  href="https://discord.com/channels/1503405091875455107/1503405094933237853"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:underline"
+                >
+                  Join our community
+                </a>
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              12. GDPR & Regional Compliance
+            </h2>
+
+            <p>
+              If you are located in regions with data protection laws such as
+              GDPR, we process your data lawfully and provide the rights
+              described in this policy.
+            </p>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <div className="border-t px-8 py-6 bg-gray-50 text-center text-sm text-gray-500">
+          © 2026 CodeVibe. All rights reserved.
         </div>
       </div>
     </div>

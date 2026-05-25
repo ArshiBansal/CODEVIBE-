@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import API_BASE_URL from "./config/api";
 
-const App = () => {
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+
+const Home = () => {
   const [data, setData] = useState("");
   const [signupLoading, setSignupLoading] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
@@ -14,6 +18,7 @@ const App = () => {
     year: "",
     password: "",
   });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,17 +30,14 @@ const App = () => {
   const handleSignup = async () => {
     try {
       setSignupLoading(true);
-      
-      const response = await axios.post(
-        `${API_BASE_URL}/api/auth/register`,
-        {
-          username: formData.username,
-          email: formData.email,
-          college: formData.college,
-          year: formData.year,
-          password: formData.password, 
-        }
-      );
+
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
+        username: formData.username,
+        email: formData.email,
+        college: formData.college,
+        year: formData.year,
+        password: formData.password,
+      });
 
       setData(response.data.message);
       console.log("✅ Signup Success:", response.data);
@@ -51,14 +53,11 @@ const App = () => {
   const handleLogin = async () => {
     try {
       setLoginLoading(true);
-      
-      const response = await axios.post(
-        `${API_BASE_URL}/api/auth/login`,
-        {
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+        email: formData.email,
+        password: formData.password,
+      });
 
       setData(response.data.message);
       console.log("✅ Login Success:", response.data);
@@ -73,71 +72,94 @@ const App = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h2>Auth API Test</h2>
+
       <div style={{ marginBottom: "20px" }}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={formData.username}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+        />
 
-      <br /><br />
+        <br />
+        <br />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={handleChange}
-      />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
 
-      <br /><br />
+        <br />
+        <br />
 
-      <input
-        type="text"
-        name="college"
-        placeholder="College"
-        value={formData.college}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="college"
+          placeholder="College"
+          value={formData.college}
+          onChange={handleChange}
+        />
 
-      <br /><br />
+        <br />
+        <br />
 
-      <input
-        type="text"
-        name="year"
-        placeholder="Year"
-        value={formData.year}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="year"
+          placeholder="Year"
+          value={formData.year}
+          onChange={handleChange}
+        />
 
-      <br /><br />
+        <br />
+        <br />
 
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-    </div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+      </div>
 
       <button onClick={handleSignup} disabled={signupLoading}>
         {signupLoading ? "Signing up..." : "Signup"}
       </button>
 
       <button
-       onClick={handleLogin}
-       disabled={loginLoading}
-       style={{ marginLeft: "10px" }}
+        onClick={handleLogin}
+        disabled={loginLoading}
+        style={{ marginLeft: "10px" }}
       >
-       {loginLoading ? "Logging in..." : "Login"}
+        {loginLoading ? "Logging in..." : "Login"}
       </button>
 
-      <p>Response: {data}</p>
+      <p style={{ marginTop: "20px" }}>Response: {data}</p>
+
+      {/* Footer Links */}
+      <div style={{ marginTop: "40px" }}>
+        <Link to="/privacy-policy">Privacy Policy</Link>
+      </div>
     </div>
-    
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        {/* Home Page */}
+        <Route path="/" element={<Home />} />
+
+        {/* Privacy Policy Page */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      </Routes>
+    </Router>
   );
 };
 
