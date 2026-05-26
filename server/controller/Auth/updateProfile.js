@@ -24,7 +24,7 @@ const updateProfile = async (req, res) => {
       { Email: tokenEmail },
       { $set: updateFields },
       { new: true }
-    ).lean();
+    );
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
@@ -34,7 +34,7 @@ const updateProfile = async (req, res) => {
       success: true,
       user: {
         username: user.username,
-        Email: user.Email,
+        email: user.Email,
         college: user.college,
         year: user.year,
         bio: user.bio || '',

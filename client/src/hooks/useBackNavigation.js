@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { resolveBackNavigation } from "../config/backNavigation";
 
@@ -15,17 +15,28 @@ export function useBackNavigation() {
     () => resolveBackNavigation(location.pathname),
     [location.pathname]
   );
+  const navigationStackRef = useRef([location.pathname]);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const stack = navigationStackRef.current;
+
+    if (stack[stack.length - 1] !== currentPath) {
+      stack.push(currentPath);
+    }
+  }, [location.pathname]);
+
+  const canGoBack = navigationStackRef.current.length > 1;
+  const fallbackTo = config?.fallbackTo || HOME_FALLBACK_ROUTE;
 
   const goBack = useCallback(() => {
-    const historyIndex = window.history.state?.idx;
-
-    if (typeof historyIndex === "number" && historyIndex > 0) {
+    if (canGoBack) {
       navigate(-1);
       return;
     }
 
-    navigate(HOME_FALLBACK_ROUTE, { replace: true });
-  }, [navigate]);
+    navigate(fallbackTo, { replace: true });
+  }, [navigate, canGoBack, fallbackTo]);
 
   return { config, goBack };
 }
