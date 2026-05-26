@@ -156,10 +156,9 @@ const getAnalytics = async (req, res) => {
       return res.status(403).json({ message: 'Forbidden' });
     }
 
-    const [user, progress, lessons, events] = await Promise.all([
+    const [user, progress, events] = await Promise.all([
       User.findOne({ Email: email }).lean(),
       Progress.findOne({ email }).lean(),
-      Lesson.find({}).lean(),
       Analytics.find({ email }).sort({ createdAt: 1 }).lean(),
     ]);
 
@@ -169,6 +168,20 @@ const getAnalytics = async (req, res) => {
 
     const scores = getProgressScores(progress?.scores);
     const completedLessons = Array.isArray(progress?.completedLessons) ? progress.completedLessons : [];
+    const eventLessonIds = Array.from(
+      new Set(events.map((event) => event.lessonId).filter(Boolean))
+    );
+    const progressLessonIds = Array.from(
+      new Set([
+        ...completedLessons,
+        ...Object.keys(scores),
+        ...eventLessonIds,
+      ])
+    );
+
+    const lessons = progressLessonIds.length
+      ? await Lesson.find({ lessonId: { $in: progressLessonIds } }).lean()
+      : [];
 
     const scoreValues = Object.values(scores).filter((value) => typeof value === 'number');
     const totalPoints = scoreValues.reduce((sum, value) => sum + value, 0);
@@ -234,14 +247,15 @@ const getAnalytics = async (req, res) => {
       return acc;
     }, {});
 
+    const userLessons = lessons;
     const stats = {
       lessonsCompleted: completedLessons.length,
-      totalLessons: lessons.length,
+      totalLessons: userLessons.length,
       subjectsCompleted: subjects.filter((item) => item.completedLessons > 0).length,
       totalPoints,
       averageScore,
-      completionRate: lessons.length
-        ? Math.round((completedLessons.length / lessons.length) * 100)
+      completionRate: userLessons.length
+        ? Math.round((completedLessons.length / userLessons.length) * 100)
         : 0,
       coinsEarned: events.reduce((sum, event) => sum + (event.coins || 0), 0),
       learningTime: events.reduce((sum, event) => sum + (event.learningTime || 0), 0),

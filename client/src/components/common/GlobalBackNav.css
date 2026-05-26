@@ -61,13 +61,13 @@
 }
 
 /* Individual lesson pages — align with .lesson when progress sidebar is open */
-body.dynamic-progress-sidebar-visible .global-back-nav--lesson {
-  padding-left: calc(312px + clamp(1rem, 4vw, 4rem));
+.codevibe-layout-managed.dynamic-progress-sidebar-visible .global-back-nav--lesson {
+  padding-left: calc(280px + clamp(1rem, 4vw, 4rem));
   padding-right: clamp(1rem, 4vw, 4rem);
 }
 
-body.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--lesson {
-  padding-left: calc(78px + clamp(1rem, 4vw, 4rem));
+.codevibe-layout-managed.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--lesson {
+  padding-left: calc(52px + clamp(1rem, 4vw, 4rem));
   padding-right: clamp(1rem, 4vw, 4rem);
 }
 
@@ -81,13 +81,13 @@ body.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global
 }
 
 @media (max-width: 1024px) {
-  body.dynamic-progress-sidebar-visible .global-back-nav--lesson {
-    padding-left: calc(312px + 1.5rem);
+  .codevibe-layout-managed.dynamic-progress-sidebar-visible .global-back-nav--lesson {
+    padding-left: calc(280px + 1.5rem);
     padding-right: 1.5rem;
   }
 
-  body.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--lesson {
-    padding-left: calc(78px + 1.5rem);
+  .codevibe-layout-managed.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--lesson {
+    padding-left: calc(52px + 1.5rem);
     padding-right: 1.5rem;
   }
 }
@@ -100,8 +100,8 @@ body.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global
     padding: 0.5rem 1rem 0;
   }
 
-  body.dynamic-progress-sidebar-visible .global-back-nav--lesson,
-  body.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--lesson {
+  .codevibe-layout-managed.dynamic-progress-sidebar-visible .global-back-nav--module,
+  .codevibe-layout-managed.dynamic-progress-sidebar-visible.dynamic-progress-sidebar-collapsed .global-back-nav--module {
     padding-left: 1rem;
     padding-right: 1rem;
   }

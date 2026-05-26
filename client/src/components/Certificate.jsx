@@ -36,26 +36,28 @@ export default function Certificate({ backgroundUrl = defaultBackgroundUrl }) {
   const poweredBy="CODEVIBE!!! & BEWITHMEit";
 
   const fetchData = async () => {
-  if (!email) { setError("Please enter email"); return; }
-  setLoading(true);
-  setError("");
+    if (!email) {
+      setError("Please enter email");
+      return;
+    }
+    if (!courseName) {
+      setError("Please select a course");
+      return;
+    }
+    setLoading(true);
+    setError("");
 
-  try {
-    const certRes = await axios.post(`${API_BASE_URL}/api/certificate`, { email, courseName });
-    console.log("cert response:", certRes.data);  // ← what does this show?
-    
-    const cert = certRes.data;
-    const displayName = studentName?.trim() || cert.studentName || "Student";
-    setInfo({ ...cert, studentName: displayName });
+    try {
+      const certRes = await axios.post(`${API_BASE_URL}/api/certificate`, { email, courseName });
+      const cert = certRes.data;
+      const displayName = studentName?.trim() || cert.studentName || "Student";
+      setInfo({ ...cert, studentName: displayName });
 
-    const progRes = await axios.get(`${API_BASE_URL}/api/progress/${email}`);
-    console.log("progress response:", progRes.data);  // ← and this?
-    setProgress(progRes.data);
-
-  } catch (e) {
-    console.log("error:", e?.response?.data || e.message);  // ← and this?
-    setError(e?.response?.data?.message || e.message || "Something went wrong");
-  }
+      const progRes = await axios.get(`${API_BASE_URL}/api/progress/${email}`);
+      setProgress(progRes.data);
+    } catch (e) {
+      setError(e?.response?.data?.message || e.message || "Something went wrong");
+    }
 
   setLoading(false);
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import RoadmapGenerator from "./RoadmapGenerator";
 import FAQ from "./FAQ";
 import Testimonials from "./testimonials";
 import EmptyState from "./EmptyState";
@@ -432,8 +433,9 @@ const Courses = () => {
   }}
 />
       )}
+      <RoadmapGenerator />
       <Testimonials />
-      <FAQ/>
+      <FAQ />
     </div>
     
   );

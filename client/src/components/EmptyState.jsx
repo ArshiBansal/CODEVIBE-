@@ -23,7 +23,7 @@ const EmptyState = ({
         {description}
       </p>
 
-      {buttonText && (
+      {buttonText && typeof onButtonClick === "function" && (
         <button
           onClick={onButtonClick}
           className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition"
